@@ -4,7 +4,7 @@ on:
   push:
       
 env:
-  IMAGE_NAME: test-multi-arch
+  IMAGE_NAME: multiarch-image-demo
   IMAGE_TAG: latest
   IMAGE_REGISTRY: quay.io
   IMAGE_NAMESPACE: raja0940
