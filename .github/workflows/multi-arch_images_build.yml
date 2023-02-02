@@ -4,10 +4,10 @@ on:
   push:
       
 env:
-  IMAGE_NAME: test-multi-arch
+  IMAGE_NAME: multiarch-image-demo
   IMAGE_TAG: latest
   IMAGE_REGISTRY: quay.io
-  IMAGE_NAMESPACE: mayurwaghmode111
+  IMAGE_NAMESPACE: raja0940
 
 jobs:
   build:
@@ -15,14 +15,14 @@ jobs:
     runs-on: ubuntu-20.04
     
     steps:
-      - uses: actions/checkout@v3.3.0
+      - uses: actions/checkout@v2
         
       - name: Set up QEMU
-        uses: docker/setup-qemu-action@v2.1.0
+        uses: docker/setup-qemu-action@v1
         
       - name: Build image 
         id: build-image
-        uses: redhat-actions/buildah-build@v2.11
+        uses: redhat-actions/buildah-build@v2
         with:
           image: ${{ env.IMAGE_NAME }}
           tags: ${{ env.IMAGE_TAG }}
@@ -32,7 +32,7 @@ jobs:
             
       - name: Push To quay.io
         id: push-to-quay
-        uses: redhat-actions/push-to-registry@v2.7
+        uses: redhat-actions/push-to-registry@v2
         with:
           image: ${{ steps.build-image.outputs.image }}
           tags: ${{ steps.build-image.outputs.tags }}
