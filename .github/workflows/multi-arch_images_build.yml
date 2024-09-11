@@ -4,7 +4,7 @@ on:
   push:
       
 env:
-  IMAGE_NAME: multiarch-image-demo
+  IMAGE_NAME: multiarch-image
   IMAGE_TAG: latest
   IMAGE_REGISTRY: quay.io
   IMAGE_NAMESPACE: smita_shinde
